@@ -1,0 +1,112 @@
+{
+ "prompt_index": 48,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Hensel,_Fanny/3_Lieder/3_Die_Nonne/lc6013171.mxl",
+ "work": "scores/Hensel,_Fanny/3_Lieder",
+ "mode": 1,
+ "tonic_pc": 9,
+ "beats": [
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ],
+  [
+   1,
+   0,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 23.75,
+   "parallels": 6,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -12.22
+  },
+  "R2": {
+   "vl_dist": 14.75,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.271,
+   "bigram_log2p": -12.32
+  },
+  "B3": {
+   "vl_dist": 23.5,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.28,
+   "bigram_log2p": -6.2
+  },
+  "V1": {
+   "vl_dist": 9.5,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.312,
+   "bigram_log2p": -5.71
+  },
+  "H-R": {
+   "vl_dist": 15.12,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.254,
+   "bigram_log2p": -2.99
+  },
+  "V1g": {
+   "vl_dist": 17.75,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.254,
+   "bigram_log2p": -2.61
+  },
+  "O-pc": {
+   "vl_dist": 29.88,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.617,
+   "bigram_log2p": -6.07
+  }
+ }
+}

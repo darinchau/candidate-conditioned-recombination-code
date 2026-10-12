@@ -1,0 +1,112 @@
+{
+ "prompt_index": 0,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Schubert,_Franz/Op.60/2_Dithyrambe,_D.801/lc4982465.mxl",
+ "work": "scores/Schubert,_Franz/Op.60",
+ "mode": 0,
+ "tonic_pc": 9,
+ "beats": [
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   1
+  ],
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   1
+  ],
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   1
+  ],
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   1
+  ],
+  [
+   2,
+   0,
+   1
+  ],
+  [
+   2,
+   1,
+   1
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 43.25,
+   "parallels": 7,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -4.35
+  },
+  "R2": {
+   "vl_dist": 12.88,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.271,
+   "bigram_log2p": -11.78
+  },
+  "B3": {
+   "vl_dist": 52.5,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.335,
+   "bigram_log2p": -9.7
+  },
+  "V1": {
+   "vl_dist": 27.12,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.268,
+   "bigram_log2p": -7.6
+  },
+  "H-R": {
+   "vl_dist": 13.25,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.381,
+   "bigram_log2p": -7.99
+  },
+  "V1g": {
+   "vl_dist": 15.12,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.337,
+   "bigram_log2p": -6.21
+  },
+  "O-pc": {
+   "vl_dist": 34.88,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.815,
+   "bigram_log2p": -4.06
+  }
+ }
+}

@@ -66,7 +66,7 @@ def main() -> None:
                 torch.cuda.empty_cache()
 
     arms = ["R0", "R1", "R2"] + NEURAL
-    results: dict = {"cell": "S2", "table": "r2", "device": str(dev), "arm_order": arms}
+    results: dict = {"cell": "S2", "table": "r2", "device": str(dev), "arm_order": arms, "kset": {}}
     for s in EVAL:
         y, uns = data.ex[s]["y"], data.ex[s]["unseen"]
         results["kset"][s] = {a: {nm: summarise([metrics(sc, cands[s], types[s], y, msk)

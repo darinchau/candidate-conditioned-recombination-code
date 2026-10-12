@@ -1,0 +1,112 @@
+{
+ "prompt_index": 40,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Chaminade,_C\u00e9cile/_/Bleus/lc6264560.mxl",
+ "work": "scores/Chaminade,_C\u00e9cile/_/Bleus",
+ "mode": 0,
+ "tonic_pc": 2,
+ "beats": [
+  [
+   4,
+   2,
+   0
+  ],
+  [
+   4,
+   3,
+   0
+  ],
+  [
+   4,
+   0,
+   0
+  ],
+  [
+   4,
+   1,
+   0
+  ],
+  [
+   4,
+   2,
+   0
+  ],
+  [
+   4,
+   3,
+   0
+  ],
+  [
+   4,
+   0,
+   0
+  ],
+  [
+   4,
+   1,
+   0
+  ],
+  [
+   4,
+   2,
+   0
+  ],
+  [
+   4,
+   3,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 31.38,
+   "parallels": 3,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -7.99
+  },
+  "R2": {
+   "vl_dist": 10.12,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.064,
+   "bigram_log2p": -8.43
+  },
+  "B3": {
+   "vl_dist": 47.5,
+   "parallels": 3,
+   "crossings": 0,
+   "jaccard": 0.046,
+   "bigram_log2p": -5.94
+  },
+  "V1": {
+   "vl_dist": 30.0,
+   "parallels": 6,
+   "crossings": 0,
+   "jaccard": 0.156,
+   "bigram_log2p": -6.76
+  },
+  "H-R": {
+   "vl_dist": 11.5,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.074,
+   "bigram_log2p": -3.94
+  },
+  "V1g": {
+   "vl_dist": 22.5,
+   "parallels": 3,
+   "crossings": 0,
+   "jaccard": 0.206,
+   "bigram_log2p": -4.76
+  },
+  "O-pc": {
+   "vl_dist": 25.25,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.619,
+   "bigram_log2p": -7.14
+  }
+ }
+}

@@ -1,0 +1,112 @@
+{
+ "prompt_index": 25,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Poldowski/_/Sur_l\u2019herbe/lc6663427.mxl",
+ "work": "scores/Poldowski/_/Sur_l\u2019herbe",
+ "mode": 0,
+ "tonic_pc": 7,
+ "beats": [
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 7.5,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -12.67
+  },
+  "R2": {
+   "vl_dist": 15.88,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.345,
+   "bigram_log2p": -11.64
+  },
+  "B3": {
+   "vl_dist": 59.25,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.167,
+   "bigram_log2p": -7.0
+  },
+  "V1": {
+   "vl_dist": 49.75,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.077,
+   "bigram_log2p": -6.95
+  },
+  "H-R": {
+   "vl_dist": 18.38,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.272,
+   "bigram_log2p": -5.88
+  },
+  "V1g": {
+   "vl_dist": 20.62,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.3,
+   "bigram_log2p": -7.69
+  },
+  "O-pc": {
+   "vl_dist": 46.75,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.549,
+   "bigram_log2p": -10.41
+  }
+ }
+}

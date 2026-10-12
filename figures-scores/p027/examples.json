@@ -1,0 +1,112 @@
+{
+ "prompt_index": 27,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Gonzaga,_Chiquinha/_/Ai_que_broma!/lc6609555.mxl",
+ "work": "scores/Gonzaga,_Chiquinha/_/Ai_que_broma!",
+ "mode": 0,
+ "tonic_pc": 0,
+ "beats": [
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 24.38,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -5.9
+  },
+  "R2": {
+   "vl_dist": 11.88,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.351,
+   "bigram_log2p": -9.95
+  },
+  "B3": {
+   "vl_dist": 50.88,
+   "parallels": 5,
+   "crossings": 0,
+   "jaccard": 0.292,
+   "bigram_log2p": -7.5
+  },
+  "V1": {
+   "vl_dist": 61.12,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.394,
+   "bigram_log2p": -7.53
+  },
+  "H-R": {
+   "vl_dist": 10.75,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.325,
+   "bigram_log2p": -4.7
+  },
+  "V1g": {
+   "vl_dist": 20.75,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.185,
+   "bigram_log2p": -6.31
+  },
+  "O-pc": {
+   "vl_dist": 35.62,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.831,
+   "bigram_log2p": -6.01
+  }
+ }
+}

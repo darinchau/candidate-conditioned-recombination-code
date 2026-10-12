@@ -14,9 +14,9 @@ Usage:
   python verify.py                 # run all stages, compare to frozen/
   python verify.py select e3e      # run a subset
   python verify.py --tol 1e-9      # float comparison tolerance (default 1e-6)
-  python verify.py --train         # additionally retrain from scratch via
+  python verify.py train           # additionally retrain from scratch via
                                    # `run_stage_bn3.py --cell S2 --table r2` (~35 min GPU)
-                                   # and compare the fresh checkpoints' results
+                                   # (runs last; overwrites models-r2/bn3/S2 in place)
 
 Exit code 0 iff every stage ran and every comparison passed within tolerance.
 """
@@ -24,6 +24,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import math
 import subprocess
 import sys
 import time
@@ -68,7 +69,8 @@ def diff(a: Any, b: Any, path: str, tol: float, out: list[str]) -> bool:
         return all(diff(x, y, f"{path}[{i}]", tol, out) for i, (x, y) in enumerate(zip(a, b)))
     if isinstance(b, float) or isinstance(a, float):
         try:
-            ok = abs(float(a) - float(b)) <= tol
+            fa, fb = float(a), float(b)
+            ok = (math.isnan(fa) and math.isnan(fb)) or abs(fa - fb) <= tol
             if not ok:
                 out.append(f"{path}: {a!r} != frozen {b!r}")
             return ok
@@ -80,12 +82,15 @@ def diff(a: Any, b: Any, path: str, tol: float, out: list[str]) -> bool:
     return True
 
 
-def compare(stage: str, fresh: Path, frozen: Path, tol: float) -> bool:
+def compare(stage: str, fresh: Path, frozen: Path, tol: float, key: str | None = None) -> bool:
+    """Compare JSON files; with `key`, compare only that top-level subtree."""
     if not fresh.exists():
         print(f"FAIL {stage}: missing output {fresh}")
         return False
     a = json.loads(fresh.read_text(encoding="utf-8"))
     b = json.loads(frozen.read_text(encoding="utf-8"))
+    if key is not None:
+        a, b = a.get(key), b[key]
     out: list[str] = []
     ok = diff(a, b, "", tol, out)
     n = min(len(out), 10)
@@ -109,12 +114,7 @@ def main() -> None:
     if "select" in todo:
         run(["eval_select.py"])
         results["select"] = compare("select", HERE / "results-select-eval/bn-results.json",
-                                    FROZEN / "results-r2/bn3/S2/bn-results.json", args.tol)
-
-    if "train" in todo:
-        run(["run_stage_bn3.py", "--cell", "S2", "--table", "r2"])
-        results["train"] = compare("train", HERE / "results-r2/bn3/S2/bn-results.json",
-                                   FROZEN / "results-r2/bn3/S2/bn-results.json", args.tol)
+                                    FROZEN / "results-r2/bn3/S2/bn-results.json", args.tol, key="kset")
 
     if "e3e" in todo:
         # diag_common verifies reconstructed pools against results-e3e/run-manifest.json;
@@ -154,6 +154,15 @@ def main() -> None:
         run(["diag_g3_guarded.py"])
         results["g3"] = compare("g3", HERE / "results-diag-g3/gate3-results.json",
                                 FROZEN / "results-diag-g3/gate3-results.json", args.tol)
+
+    if "train" in todo:
+        # Runs last: retraining overwrites models-r2/bn3/S2/*.pt in place. Run it in a
+        # scratch clone if the shipped checkpoints must stay untouched.
+        run(["run_stage_bn3.py", "--cell", "S2", "--table", "r2"])
+        results["train"] = compare("train", HERE / "results-r2/bn3/S2/bn-results.json",
+                                   FROZEN / "results-r2/bn3/S2/bn-results.json", args.tol)
+        results["train-frozen"] = compare("train-frozen", HERE / "FROZEN-R2-BN3-S2.json",
+                                          FROZEN / "FROZEN-R2-BN3-S2.json", args.tol)
 
     print("\n==== summary ====")
     for k, v in results.items():

@@ -1,3 +1,4 @@
 *.py text eol=crlf
 *.pt binary
 pieces.json -text
+plan-stageE3E-frozen.md text eol=lf

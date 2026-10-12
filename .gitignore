@@ -17,3 +17,7 @@ __pycache__/
 /models-bn3/
 /models-bn3-smoke/
 build.log
+/FROZEN-R2-BN3-S2.json
+/.scratch-verify/
+/*.log
+/figures-scores/**/.tmp/

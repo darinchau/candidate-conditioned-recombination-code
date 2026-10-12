@@ -1,0 +1,112 @@
+{
+ "prompt_index": 45,
+ "prompt": "OpenScore/Lieder@38c5db51/scores/Bizet,_Georges/20_M\u00e9lodies,_Op.21/08_Ma_vie_a_son_secret/lc6895581.mxl",
+ "work": "scores/Bizet,_Georges/20_M\u00e9lodies,_Op.21",
+ "mode": 0,
+ "tonic_pc": 3,
+ "beats": [
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ],
+  [
+   3,
+   1,
+   0
+  ],
+  [
+   3,
+   2,
+   0
+  ],
+  [
+   3,
+   0,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 24.5,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -3.45
+  },
+  "R2": {
+   "vl_dist": 9.5,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.46,
+   "bigram_log2p": -7.43
+  },
+  "B3": {
+   "vl_dist": 46.25,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.448,
+   "bigram_log2p": -5.79
+  },
+  "V1": {
+   "vl_dist": 30.75,
+   "parallels": 4,
+   "crossings": 0,
+   "jaccard": 0.338,
+   "bigram_log2p": -6.03
+  },
+  "H-R": {
+   "vl_dist": 10.0,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.604,
+   "bigram_log2p": -3.13
+  },
+  "V1g": {
+   "vl_dist": 18.62,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.577,
+   "bigram_log2p": -6.22
+  },
+  "O-pc": {
+   "vl_dist": 58.75,
+   "parallels": 3,
+   "crossings": 0,
+   "jaccard": 0.856,
+   "bigram_log2p": -5.37
+  }
+ }
+}

@@ -1,4 +1,4 @@
-"""Score figures for the paper: one test_lied prompt continued by each arm, engraved with LilyPond.
+"""Score figures for the paper: one prompt of the chosen split continued by each arm, engraved with LilyPond.
 
 Rebuilds the frozen E3e world via diag_common.setup() (pool hash verified against
 results-e3e/run-manifest.json), chains the first SHOW steps for each arm with seed-0 models,
@@ -134,7 +134,9 @@ def excerpt_metrics(st, ids: list[int], runs: dict[str, list[int]], show: int, b
 
 def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--prompts", type=int, nargs="+", default=[0], help="indices into the test_lied prompts")
+    ap.add_argument("--prompts", type=int, nargs="+", default=[0], help="indices into the split's prompts")
+    ap.add_argument("--split", default="test_lied", choices=["test_lied", "test_id"],
+                    help="prompt split to render from")
     ap.add_argument("--show", type=int, default=8, help="generated beats to engrave")
     ap.add_argument("--ctx", type=int, default=2, help="prompt beats shown before the cut")
     ap.add_argument("--out", default="figures-scores")
@@ -156,12 +158,12 @@ def main() -> None:
     lam = json.loads((HERE / "results-e3e/chain-results.json").read_text(encoding="utf-8"))["lambda"]
 
     for pi in a.prompts:
-        p = st["prompts"]["test_lied"][pi]
+        p = st["prompts"][a.split][pi]
         ids = [st["bidx"][b] for b in p["bids"]]
         runs = chain_runs(st, p, models, big, lam, dev)
         d = out / f"p{pi:03d}"
         d.mkdir(exist_ok=True)
-        meta = {"prompt_index": pi, "prompt": p["id"], "work": p["work"], "mode": p["mode"],
+        meta = {"prompt_index": pi, "split": a.split, "prompt": p["id"], "work": p["work"], "mode": p["mode"],
                 "tonic_pc": p["tonic_pc"], "beats": p["beats"][L - a.ctx:L + a.show], "show": a.show,
                 "ctx": a.ctx, "arms": excerpt_metrics(st, ids, runs, a.show, big)}
         (d / "examples.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")

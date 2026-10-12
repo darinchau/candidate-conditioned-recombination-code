@@ -21,3 +21,4 @@ build.log
 /.scratch-verify/
 /*.log
 /figures-scores/**/.tmp/
+/xml-examples/

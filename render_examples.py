@@ -174,6 +174,7 @@ def main() -> None:
                             for arm in arms])
             (d / f"{g}.ly").write_text(doc, encoding="utf-8")
             if a.engrave:
+                assert exe is not None  # outer assert allows exe-less non-engrave runs
                 r = subprocess.run([exe, "-dcrop", "-dno-point-and-click", "-dresolution=200", "-fpdf", "-fpng",
                                 "-o", g, f"{g}.ly"], cwd=d, capture_output=True, text=True, errors="replace", env=env)
                 assert r.returncode == 0, r.stderr[-1500:]

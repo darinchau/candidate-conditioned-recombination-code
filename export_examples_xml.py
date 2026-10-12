@@ -177,6 +177,7 @@ def check_file(path: Path, data, blocks: list[int]) -> None:
 
     root = ET.parse(path).getroot()
     part = root.find("part")
+    assert part is not None
     n_xml = len(part.findall(".//note"))
     per_voice = [voice_measures(data, blocks, v) for v in range(4)]
     n_want = sum(len(m) for v in per_voice for m in v)
@@ -184,18 +185,26 @@ def check_file(path: Path, data, blocks: list[int]) -> None:
     for m_i, meas in enumerate(part.findall("measure")):
         by_voice: dict[str, list[ET.Element]] = {}
         for note in meas.findall("note"):
-            by_voice.setdefault(note.find("voice").text, []).append(note)
+            vel = note.find("voice")
+            assert vel is not None and vel.text is not None
+            by_voice.setdefault(vel.text, []).append(note)
         for v in range(4):
             got = by_voice.get(str(VOICE_NUM[v]), [])
             want = per_voice[v][m_i]
             assert len(got) == len(want), f"{path.name} m{m_i + 1} v{v}: {len(got)} != {len(want)}"
             for note, ev in zip(got, want):
-                dur = int(note.find("duration").text)
+                del_el = note.find("duration")
+                assert del_el is not None and del_el.text is not None
+                dur = int(del_el.text)
                 pitch = note.find("pitch")
                 if pitch is not None:
-                    base = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}[pitch.find("step").text]
-                    val = (int(pitch.find("octave").text) + 1) * 12 + base + \
-                        (int(pitch.find("alter").text) if pitch.find("alter") is not None else 0)
+                    step_el, oct_el = pitch.find("step"), pitch.find("octave")
+                    assert step_el is not None and step_el.text is not None
+                    assert oct_el is not None and oct_el.text is not None
+                    base = {"C": 0, "D": 2, "E": 4, "F": 5, "G": 7, "A": 9, "B": 11}[step_el.text]
+                    alt_el = pitch.find("alter")
+                    val = (int(oct_el.text) + 1) * 12 + base + \
+                        (int(alt_el.text) if alt_el is not None and alt_el.text is not None else 0)
                     assert note.find("rest") is None
                 else:
                     assert note.find("rest") is not None

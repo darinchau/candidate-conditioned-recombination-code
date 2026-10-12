@@ -1,0 +1,130 @@
+{
+ "written": "2026-10-08 05:21:52",
+ "cell": "S2",
+ "env": {
+  "python": "3.12.10",
+  "torch": "2.9.1+cu128",
+  "cuda": "12.8",
+  "device": "NVIDIA GeForce RTX 5090",
+  "platform": "Windows-11-10.0.26200-SP0",
+  "commit": "549f8ce40a4e36c0af8c85c667b3805d1e66a9f5",
+  "dirty": false,
+  "sha256": {
+   "pieces.json": "cc0f75e2a0667405da8be2ece2474ac45cbeb083406d4b3ba8c30a86edf1d228"
+  },
+  "script_sha256": "e7ab4b21588bbe0f9ddb9952d5549a2ee73472696d6bf8d4acfede2e2919d4ab",
+  "cell": "S2",
+  "table": "r2"
+ },
+ "epochs": 15,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "lr": {
+  "B3": 0.001,
+  "V1": 0.001,
+  "C1": 0.0003
+ },
+ "selection_splits": [
+  "dev",
+  "dev_lied"
+ ],
+ "sizes": {
+  "train": {
+   "decisions": 109284,
+   "works": 492,
+   "unseen": 0
+  },
+  "dev": {
+   "decisions": 1770,
+   "works": 26,
+   "unseen": 625
+  },
+  "test_id": {
+   "decisions": 1395,
+   "works": 20,
+   "unseen": 447
+  },
+  "test_lied": {
+   "decisions": 23361,
+   "works": 116,
+   "unseen": 18701
+  },
+  "dev_lied": {
+   "decisions": 13137,
+   "works": 46,
+   "unseen": 10088
+  },
+  "train_by_source": {
+   "chorale": 18886,
+   "lieder": 90398
+  },
+  "vocab": 18190,
+  "eligibility": {
+   "dev": {
+    "rows_before": 1770,
+    "rows_scored": 1720
+   },
+   "test_id": {
+    "rows_before": 1395,
+    "rows_scored": 1300
+   },
+   "test_lied": {
+    "rows_before": 23361,
+    "rows_scored": 22995
+   },
+   "dev_lied": {
+    "rows_before": 13137,
+    "rows_scored": 12524
+   }
+  }
+ },
+ "eval_candidate_sha256": {
+  "dev": "6ce66244953155ec28b9ff4d774080359b3b91f8af9c1dcf10148d3b816484a7",
+  "test_id": "b1a35561fe35fae24ccc0e1631e75ec8e5f3b09e5a0be3c3f5e273f00bfe0902",
+  "test_lied": "3508eb50bb2eb35f7aed5d75b32b5f6c06271095adf693304d60c89e452b4fa7",
+  "dev_lied": "694929895b7c091f3ff526f61ef9a196fe0dec3ce86bb6006b4d933bf5e79e56"
+ },
+ "eval_work_sha256": {
+  "dev": "37f8d94a1431273799984adf742b5fa435c9af1ce8657b6705f24e9570aeb528",
+  "test_id": "660dd5d40e12ba5eeb8ae7afcfa567530dfa79277e6e1ca984637b11dcd8f6c3",
+  "test_lied": "023f152b9c139d8ab72ed24c9622a1c3d4f220069c0a6ee6d8d08b41da3fe303",
+  "dev_lied": "1f55da5adeb78f6a89e6ad32a64ad40e6f992bc1b6dc73844ab860315cc2260c"
+ },
+ "dev_top1": {
+  "dev": {
+   "R0": 0.06976744186046512,
+   "R1": 0.2302325581395349,
+   "R2": 0.4517441860465116,
+   "B3": 0.6261627906976744,
+   "V1": 0.6633720930232558,
+   "C1": 0.06976744186046512
+  },
+  "dev_lied": {
+   "R0": 0.06395720217183008,
+   "R1": 0.07050463110827211,
+   "R2": 0.4093740019163207,
+   "B3": 0.6818109230277867,
+   "V1": 0.7274033854998403,
+   "C1": 0.060603641009262216
+  }
+ },
+ "manipulation_gate": {
+  "rule": "C1 top-1 <= 1.5/K = 0.0938 on ['dev', 'dev_lied'] (seed 0)",
+  "per_split": {
+   "dev": true,
+   "dev_lied": true
+  },
+  "pass": true
+ },
+ "stop_rule": {
+  "rule": "non-S1 cells: stop if neither V1 nor B3 beats both R1 and R2 on dev_lied",
+  "beats_both": {
+   "V1": true,
+   "B3": true
+  },
+  "triggered": false
+ }
+}

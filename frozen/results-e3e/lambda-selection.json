@@ -1,0 +1,63 @@
+{
+ "splits": [
+  "dev",
+  "dev_lied"
+ ],
+ "prompts": 72,
+ "tolerance": 1.1,
+ "grid": {
+  "H-R|0.5": {
+   "vl_dist": 11.145833333333334,
+   "trig_lp": -7.477788256849272,
+   "base_vl_dist": 10.5859375,
+   "feasible": true
+  },
+  "H-R|1.0": {
+   "vl_dist": 11.344618055555555,
+   "trig_lp": -6.73936821848127,
+   "base_vl_dist": 10.5859375,
+   "feasible": true
+  },
+  "H-R|2.0": {
+   "vl_dist": 12.2578125,
+   "trig_lp": -5.609233683151199,
+   "base_vl_dist": 10.5859375,
+   "feasible": false
+  },
+  "H-R|4.0": {
+   "vl_dist": 13.6015625,
+   "trig_lp": -4.587027221180175,
+   "base_vl_dist": 10.5859375,
+   "feasible": false
+  },
+  "H-V|0.5": {
+   "vl_dist": 27.318287037037035,
+   "trig_lp": -5.908966210385938,
+   "base_vl_dist": 26.907118055555557,
+   "feasible": true
+  },
+  "H-V|1.0": {
+   "vl_dist": 27.86545138888889,
+   "trig_lp": -4.6073727299034335,
+   "base_vl_dist": 26.907118055555557,
+   "feasible": true
+  },
+  "H-V|2.0": {
+   "vl_dist": 29.118055555555557,
+   "trig_lp": -3.2444792619875997,
+   "base_vl_dist": 26.907118055555557,
+   "feasible": true
+  },
+  "H-V|4.0": {
+   "vl_dist": 30.81973379629629,
+   "trig_lp": -2.565233349795139,
+   "base_vl_dist": 26.907118055555557,
+   "feasible": false
+  }
+ },
+ "chosen": {
+  "H-R": 1.0,
+  "H-V": 2.0
+ },
+ "written_before_test": "2026-10-09 07:46:08"
+}

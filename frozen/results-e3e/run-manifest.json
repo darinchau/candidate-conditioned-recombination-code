@@ -1,0 +1,44 @@
+{
+ "written": "2026-10-09 07:44:51",
+ "mode": "full",
+ "python": "3.12.10",
+ "torch": "2.9.1+cu128",
+ "cuda": "12.8",
+ "device": "NVIDIA GeForce RTX 5090",
+ "commit": "2e0a50c52dce87c8e2872ca5c8cc4f4f6e61e9ed",
+ "dirty": false,
+ "sha256": {
+  "data": "cc0f75e2a0667405da8be2ece2474ac45cbeb083406d4b3ba8c30a86edf1d228",
+  "runner": "932aad25026138a133261e29658bda71477b0bca22dbbc577e28a1103215824c",
+  "V1-seed0": "dfe5e04fc8d1b8155458551c57ebc461bd9e6970c39edd40e747f9d7c4880365",
+  "V1-seed1": "97a3321c03971ecb2a73f57fdc4f6a4c1f2f4485f03e7a4a93769d81101a5e38",
+  "V1-seed2": "40d256f8b9daa22d7116ba819e6b323b40bc51243778fe564c558dc68162f0c3",
+  "B3-seed0": "7c10c86dd92d88b997f569aeaf90d0d6e76e6b666e33d045ec37843979dcbc15",
+  "B3-seed1": "63b1fa5aa8f8eaae33374a2c2407ae87fca62797522c6d3f4f4ec5269023bddb",
+  "B3-seed2": "8defd5cb1f65a61a42196ec20c32e37fa05d3f5352dcb95fe6893aad836072f7",
+  "plan": "7e1f26f5485cc6b88c299c48becdf5c192a630bdf0a0d03b6f81546a0123f831"
+ },
+ "prompt_counts": {
+  "dev": 26,
+  "dev_lied": 46,
+  "test_id": 20,
+  "test_lied": 116
+ },
+ "train_pieces": 925,
+ "pcset_vocab_train": 1962,
+ "K": 16,
+ "L": 8,
+ "STEPS": 16,
+ "seeds": [
+  0,
+  1,
+  2
+ ],
+ "lambdas": [
+  0.5,
+  1.0,
+  2.0,
+  4.0
+ ],
+ "pool_sha256": "27fb04153a711a73c1e21ecc4b6cf15720d443e255a7ae22926c9bda0013b55f"
+}

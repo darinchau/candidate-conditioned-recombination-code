@@ -1,0 +1,36 @@
+[05:04:01] table r2 (rest-fixed data/stageB2-r2; plan-stageR2.md)
+[05:04:02] env {"python": "3.12.10", "torch": "2.9.1+cu128", "cuda": "12.8", "device": "NVIDIA GeForce RTX 5090", "platform": "Windows-11-10.0.26200-SP0", "commit": "549f8ce40a4e36c0af8c85c667b3805d1e66a9f5", "dirty": false, "sha256": {"pieces.json": "cc0f75e2a0667405da8be2ece2474ac45cbeb083406d4b3ba8c30a86edf1d228"}, "script_sha256": "e7ab4b21588bbe0f9ddb9952d5549a2ee73472696d6bf8d4acfede2e2919d4ab", "cell": "S2", "table": "r2"} smoke=False
+[05:04:02] STATUS loading data
+[05:04:03] blocks 79372, vocab 18190, sizes {"train": {"decisions": 109284, "works": 492, "unseen": 0}, "dev": {"decisions": 1770, "works": 26, "unseen": 625}, "test_id": {"decisions": 1395, "works": 20, "unseen": 447}, "test_lied": {"decisions": 23361, "works": 116, "unseen": 18701}, "dev_lied": {"decisions": 13137, "works": 46, "unseen": 10088}, "train_by_source": {"chorale": 18886, "lieder": 90398}, "vocab": 18190}
+[05:04:03] STATUS sampling N3 candidate sets
+[05:04:05] N3 eligibility {"dev": {"rows_before": 1770, "rows_scored": 1720}, "test_id": {"rows_before": 1395, "rows_scored": 1300}, "test_lied": {"rows_before": 23361, "rows_scored": 22995}, "dev_lied": {"rows_before": 13137, "rows_scored": 12524}}
+[05:04:05] eval candidate-set hashes {"dev": "6ce66244953155ec28b9ff4d774080359b3b91f8af9c1dcf10148d3b816484a7", "test_id": "b1a35561fe35fae24ccc0e1631e75ec8e5f3b09e5a0be3c3f5e273f00bfe0902", "test_lied": "3508eb50bb2eb35f7aed5d75b32b5f6c06271095adf693304d60c89e452b4fa7", "dev_lied": "694929895b7c091f3ff526f61ef9a196fe0dec3ce86bb6006b4d933bf5e79e56"}
+[05:04:58] candidate stats {"train": [{"sets": 109284, "fallback_rate": 0.00423, "levels": {"level0": 108822, "level1": 67, "level2": 395}}, {"sets": 109284, "fallback_rate": 0.00423, "levels": {"level0": 108822, "level1": 67, "level2": 395}}, {"sets": 109284, "fallback_rate": 0.00423, "levels": {"level0": 108822, "level1": 67, "level2": 395}}, {"sets": 109284, "fallback_rate": 0.00423, "levels": {"level0": 108822, "level1": 67, "level2": 395}}], "dev": {"sets": 1770, "fallback_rate": 0.02825, "levels": {"level0": 1720, "level1": 50}}, "test_id": {"sets": 1395, "fallback_rate": 0.0681, "levels": {"level0": 1300, "level1": 95}}, "test_lied": {"sets": 23361, "fallback_rate": 0.01567, "levels": {"level0": 22995, "level1": 366}}, "dev_lied": {"sets": 13137, "fallback_rate": 0.04666, "levels": {"level0": 12524, "level1": 390, "level3": 223}}}
+[05:05:00] STATUS baselines on dev + dev_lied
+[05:05:00] dev baselines {"R0": 0.0698, "R1": 0.2302, "R2": 0.4517}
+[05:05:01] dev_lied baselines {"R0": 0.064, "R1": 0.0705, "R2": 0.4094}
+[05:05:01] STATUS dev selection B3 lr=0.0003
+[05:07:58]   B3 lr=0.0003 sel_nll=1.1716 best_ep=11 dev top1=0.5983 nll=1.1604 dev_lied top1=0.6706 nll=1.1827
+[05:07:58] STATUS dev selection B3 lr=0.001
+[05:10:48]   B3 lr=0.001 sel_nll=1.1255 best_ep=10 dev top1=0.6262 nll=1.0766 dev_lied top1=0.6818 nll=1.1745
+[05:10:48] STATUS dev selection V1 lr=0.0003
+[05:14:00]   V1 lr=0.0003 sel_nll=1.0705 best_ep=9 dev top1=0.6186 nll=1.1289 dev_lied top1=0.7068 nll=1.0121
+[05:14:00] STATUS dev selection V1 lr=0.001
+[05:17:08]   V1 lr=0.001 sel_nll=0.9867 best_ep=9 dev top1=0.6634 nll=1.0093 dev_lied top1=0.7274 nll=0.9642
+[05:17:08] STATUS dev selection C1 lr=0.0003
+[05:19:29]   C1 lr=0.0003 sel_nll=2.7725 best_ep=11 dev top1=0.0698 nll=2.7725 dev_lied top1=0.0606 nll=2.7726
+[05:19:29] STATUS dev selection C1 lr=0.001
+[05:21:52]   C1 lr=0.001 sel_nll=2.7726 best_ep=4 dev top1=0.0750 nll=2.7725 dev_lied top1=0.0604 nll=2.7726
+[05:21:52] FROZEN written: lr={'B3': 0.001, 'V1': 0.001, 'C1': 0.0003} gate={'dev': True, 'dev_lied': True} stop=False dev_top1={"dev": {"R0": 0.06976744186046512, "R1": 0.2302325581395349, "R2": 0.4517441860465116, "B3": 0.6261627906976744, "V1": 0.6633720930232558, "C1": 0.06976744186046512}, "dev_lied": {"R0": 0.06395720217183008, "R1": 0.07050463110827211, "R2": 0.4093740019163207, "B3": 0.6818109230277867, "V1": 0.7274033854998403, "C1": 0.060603641009262216}}
+[05:21:52] STATUS baselines on test splits
+[05:21:54] STATUS final B3 seed=0
+[05:21:55] STATUS final B3 seed=1
+[05:24:44] STATUS final B3 seed=2
+[05:27:35] STATUS final V1 seed=0
+[05:27:36] STATUS final V1 seed=1
+[05:30:43] STATUS final V1 seed=2
+[05:33:53] STATUS final C1 seed=0
+[05:33:53] STATUS final C1 seed=1
+[05:36:11] STATUS final C1 seed=2
+[05:38:50] STATUS metrics
+[05:38:52] STATUS DONE in 34.9 min

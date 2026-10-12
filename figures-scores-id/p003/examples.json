@@ -1,0 +1,113 @@
+{
+ "prompt_index": 3,
+ "split": "test_id",
+ "prompt": "music21/bach/bwv133.6.mxl",
+ "work": "bach/bwv133.6",
+ "mode": 0,
+ "tonic_pc": 2,
+ "beats": [
+  [
+   4,
+   1,
+   0
+  ],
+  [
+   4,
+   2,
+   0
+  ],
+  [
+   4,
+   3,
+   0
+  ],
+  [
+   4,
+   0,
+   0
+  ],
+  [
+   4,
+   1,
+   0
+  ],
+  [
+   4,
+   2,
+   0
+  ],
+  [
+   4,
+   3,
+   0
+  ],
+  [
+   4,
+   0,
+   0
+  ],
+  [
+   4,
+   1,
+   0
+  ],
+  [
+   4,
+   2,
+   0
+  ]
+ ],
+ "show": 8,
+ "ctx": 2,
+ "arms": {
+  "Original": {
+   "vl_dist": 12.25,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 1.0,
+   "bigram_log2p": -7.85
+  },
+  "R2": {
+   "vl_dist": 15.0,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.268,
+   "bigram_log2p": -6.47
+  },
+  "B3": {
+   "vl_dist": 16.88,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.39,
+   "bigram_log2p": -6.05
+  },
+  "V1": {
+   "vl_dist": 17.75,
+   "parallels": 2,
+   "crossings": 0,
+   "jaccard": 0.396,
+   "bigram_log2p": -4.47
+  },
+  "H-R": {
+   "vl_dist": 9.75,
+   "parallels": 0,
+   "crossings": 0,
+   "jaccard": 0.304,
+   "bigram_log2p": -4.33
+  },
+  "V1g": {
+   "vl_dist": 14.5,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.521,
+   "bigram_log2p": -6.57
+  },
+  "O-pc": {
+   "vl_dist": 29.38,
+   "parallels": 1,
+   "crossings": 0,
+   "jaccard": 0.752,
+   "bigram_log2p": -4.6
+  }
+ }
+}

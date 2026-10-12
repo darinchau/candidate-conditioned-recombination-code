@@ -139,10 +139,12 @@ def main() -> None:
                     help="prompt split to render from")
     ap.add_argument("--show", type=int, default=8, help="generated beats to engrave")
     ap.add_argument("--ctx", type=int, default=2, help="prompt beats shown before the cut")
-    ap.add_argument("--out", default="figures-scores")
+    ap.add_argument("--out", default=None,
+                    help="output root (default: figures-scores for test_lied, figures-scores-id for "
+                         "test_id; prompt indices are split-local, so the splits must not share a dir)")
     ap.add_argument("--engrave", action="store_true")
     a = ap.parse_args()
-    out = HERE / a.out
+    out = HERE / (a.out or ("figures-scores" if a.split == "test_lied" else "figures-scores-id"))
     out.mkdir(exist_ok=True)
     exe = shutil.which("lilypond") or shutil.which("lilypond.exe")
     assert exe or not a.engrave, "lilypond not on PATH"

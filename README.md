@@ -79,7 +79,7 @@ original GPU) and compares the fresh `bn-results.json` against the frozen one.
 ## Provenance
 
 - Original runs: 2026-10-08/09/10, Python 3.12.10, torch 2.9.1+cu128, CUDA 12.8,
-  one NVIDIA RTX 5090, experiment commit `2e0a50c52dce87c8e2872ca5c8cc4f4f6e61e9ed`.
+  one NVIDIA RTX 5090.
 - `data/stageB2-r2/pieces.json` sha256 `cc0f75e2…d228` matches the value recorded in
   `frozen/results-e3e/run-manifest.json`, as do the six V1/B3 checkpoint hashes.
 - The `diag_*` stages re-derive the chained pools from the data file and assert the pool

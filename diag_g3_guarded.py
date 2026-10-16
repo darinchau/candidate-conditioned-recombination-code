@@ -95,7 +95,7 @@ def main() -> None:
 
     lines = ["# G3 guarded joint objective: V1g (prior-within-guard) vs plain V1 / H-R / R2", "",
              f"Mode {out['mode']}; device {dev.type}; lambdas {lam} (H-R only; V1g has no lambda).",
-             f"Criteria (pre-registered, plan-gate3-guarded.md @052e969): {'; '.join(CRITERIA)}.", "",
+             f"Criteria (pre-registered, plan-gate3-guarded.md): {'; '.join(CRITERIA)}.", "",
              f"Verdict (test_lied, primary): **{out['gate']['test_lied']['verdict']}** "
              f"(test_id secondary: {out['gate']['test_id']['verdict']}).", ""]
     for split in TEST_SPLITS:

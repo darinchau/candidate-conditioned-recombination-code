@@ -7,7 +7,6 @@
   "cuda": "12.8",
   "device": "NVIDIA GeForce RTX 5090",
   "platform": "Windows-11-10.0.26200-SP0",
-  "commit": "549f8ce40a4e36c0af8c85c667b3805d1e66a9f5",
   "dirty": false,
   "sha256": {
    "pieces.json": "cc0f75e2a0667405da8be2ece2474ac45cbeb083406d4b3ba8c30a86edf1d228"

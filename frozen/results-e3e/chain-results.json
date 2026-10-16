@@ -6,7 +6,6 @@
   "torch": "2.9.1+cu128",
   "cuda": "12.8",
   "device": "NVIDIA GeForce RTX 5090",
-  "commit": "2e0a50c52dce87c8e2872ca5c8cc4f4f6e61e9ed",
   "dirty": false,
   "sha256": {
    "data": "cc0f75e2a0667405da8be2ece2474ac45cbeb083406d4b3ba8c30a86edf1d228",

@@ -1,7 +1,7 @@
 # G3 guarded joint objective: V1g (prior-within-guard) vs plain V1 / H-R / R2
 
 Mode full; device cpu; lambdas {'H-R': 1.0, 'H-V': 2.0} (H-R only; V1g has no lambda).
-Criteria (pre-registered, plan-gate3-guarded.md @052e969): C1 V1g-V1 trig_lp (full) CI95 lower > 0; C2 V1g-V1 jaccard >= 0 and diatonic >= 0 (paired means); C3 vl_dist/hr_gap/parallels/crossings CI95 upper <= +10% of V1 mean; continuity CI95 lower >= -10%.
+Criteria (pre-registered, plan-gate3-guarded.md): C1 V1g-V1 trig_lp (full) CI95 lower > 0; C2 V1g-V1 jaccard >= 0 and diatonic >= 0 (paired means); C3 vl_dist/hr_gap/parallels/crossings CI95 upper <= +10% of V1 mean; continuity CI95 lower >= -10%.
 
 Verdict (test_lied, primary): **FAIL** (test_id secondary: FAIL).
 

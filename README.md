@@ -60,7 +60,7 @@ python verify.py
 
 Run a subset with `python verify.py select e3e`, adjust the float tolerance with
 `--tol` (default 1e-6; numbers should match exactly on identical hardware, seeds are
-frozen throughout). With `python verify.py --train` the driver additionally **retrains**
+frozen throughout). With `python verify.py train` the driver additionally **retrains**
 the Table I scorers from scratch (`run_stage_bn3.py --cell S2 --table r2`, ~35 min on the
 original GPU) and compares the fresh `bn-results.json` against the frozen one.
 
@@ -91,9 +91,10 @@ original GPU) and compares the fresh `bn-results.json` against the frozen one.
 ## Verification status (2026-10-12)
 
 - Data and V1/B3 checkpoint sha256: match `frozen/results-e3e/run-manifest.json`.
-- `g1pools`: PASS, exact match to frozen at `--tol 1e-9` (CPU, ~25 s); the pool-hash
-  assertion in `diag_common.py` passed.
-- `select`, `e3e`, `g1inject`, `g2`, `g3`, `--train`: not yet rerun in this package.
+- Full `verify.py` rerun (clean clone; CPU diag stages + GPU select/retrain): **ALL PASS** —
+  `select`, `e3e`, `g1pools` (exact match to frozen at `--tol 1e-9`; the pool-hash assertion
+  in `diag_common.py` passed), `g1inject`, `g2`, `g3`, `train` (retrain from scratch, 32.3 min
+  on the original GPU) and `train-frozen` all reproduce the frozen reference outputs exactly.
 
 ## Repo layout notes
 

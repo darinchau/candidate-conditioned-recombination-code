@@ -1,16 +1,8 @@
 """Stage A: candidate-conditioned next-chord decision pilot (task: next-decision scoring,
 a subproblem of recomposition; not a mashup experiment).
 
-Runs end to end without supervision and writes all results to results/:
-  results/STATUS.txt            progress line, updated as it goes (read this first)
-  results/stageA-dev.json       dev-only selection results
-  FROZEN.json                   selected configs, written BEFORE any test evaluation
-  results/stageA-results.json   full metrics, bootstrap CIs, latency, env
-  results/stageA-report.md      human-readable comparison table + H1 verdict
-  results/run.log               log
+Usage: .venv-gpu/Scripts/python.exe run_stage_a.py [--smoke]"""
 
-Usage: .venv-gpu/Scripts/python.exe run_stage_a.py [--smoke]
-"""
 from __future__ import annotations
 
 import argparse

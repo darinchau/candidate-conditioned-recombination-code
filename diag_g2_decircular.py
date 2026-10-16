@@ -1,27 +1,7 @@
 """G2 de-circularization: is the harmony-prior gain (and the trig_lp metric) real or count leakage?
 
-Circularity under test: the E3e H-arm prior (big = WB(train, 2)) and the eval trigram
-(tri = WB(train, 3)) count from the SAME 925 train works the V1/B3 checkpoints trained on.
-Protocol (all on the frozen, manifest-verified E3e world; no inject):
+Usage: .venv-gpu/Scripts/python.exe diag_g2_decircular.py [--smoke] [--cuda]"""
 
-  1. Split the 492 train works into halves A/B stratified by source (half_split, seed 20261010).
-  2. Re-run every published arm unchanged (R0/R2/O-pc/B3/V1/Original + H-R/H-V at the published
-     lambdas with the FULL prior) and verify per-prompt rows against chain-results.json (anchor).
-  3. Cross-half arms: H-RhA/H-RhB and H-VhA/H-VhB -- identical rule, but the prior is fitted on
-     ONE half only. Score every arm under three trigrams: full, A, B.
-  4. Readouts:
-     - Cross-half contrast: H-RhA - R2 (scored with tri_B) and H-RhB - R2 (tri_A); same for
-       H-VhA - V1 / H-VhB - V1. Persistence of the trig_lp gain under a DISJOINT trigram means
-       the prior carries transferable harmony structure, not memorized counts.
-     - Memorization signature: same-side scores (H-RhA under tri_A) vs cross-side.
-     - Stability: V1 - R2 / B3 - R2 trig_lp under all three trigrams (models saw both halves, so
-       this is a robustness check, not a clean de-circularization).
-     - VL guard: half-prior arms' vl_dist vs base (E3e guard was VL_TOL = 1.10 x base).
-
---smoke chains the first 6 prompts per split (timing/dev only, no evidence).
-Writes results-diag-g2/decirc-results.json + decirc-report.md.
-Usage: .venv-gpu/Scripts/python.exe diag_g2_decircular.py [--smoke] [--cuda]
-"""
 from __future__ import annotations
 
 import argparse

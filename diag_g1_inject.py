@@ -1,19 +1,7 @@
 """G1 causal test (E3e-inject): do the selectors pick the original continuation when it is in the pool?
 
-Protocol: exactly the frozen E3e chained run, except that at every step the ORIGINAL piece's block at
-that position replaces one seeded-random pool position (seed [SEED_DATA, pi, t, 777], shared across
-arms). Arms: R0 (chance anchor 1/16), R2, O-pc (oracle sanity, expect ~1.0), B3, V1 (seeds 0-2
-averaged, as in E3e). If V1's selection advantage is target identification, its injected-pick rate
-should clearly exceed B3's; on-track vs diverged pick rates separate "recognises the true
-continuation of the true history" from "prefers own-work blocks after divergence".
+Usage: .venv-gpu/Scripts/python.exe diag_g1_inject.py [--smoke] [--cuda]"""
 
-A no-inject baseline pass over R2/B3/V1 is verified against the published per-prompt rows first
-(R2 exact; V1/B3 tolerate float nondeterminism), anchoring the inject deltas to the published run.
-
---smoke chains the first 6 prompts per split on the true pools (timing/dev only, no evidence).
-Writes results-diag-g1/inject-results.json + inject-report.md.
-Usage: .venv-gpu/Scripts/python.exe diag_g1_inject.py [--smoke] [--cuda]
-"""
 from __future__ import annotations
 
 import argparse

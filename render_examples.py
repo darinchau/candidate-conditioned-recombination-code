@@ -1,13 +1,8 @@
 """Score figures for the paper: one prompt of the chosen split continued by each arm, engraved with LilyPond.
 
-Rebuilds the frozen E3e world via diag_common.setup() (pool hash verified against
-results-e3e/run-manifest.json), chains the first SHOW steps for each arm with seed-0 models,
-and writes per-arm LilyPond fragments plus per-step metrics to <out>/. The fragments are
-grand staves (S/A treble, T/B bass) in the key-normalised frame of the data (tonic C).
-
 Usage: python render_examples.py [--prompts N ...] [--show 8] [--out figures-scores] [--engrave]
---engrave calls `lilypond` (2.24) on each .ly to produce cropped PDFs for \\includegraphics.
-"""
+--engrave calls `lilypond` (2.24) on each .ly to produce cropped PDFs for \\includegraphics."""
+
 from __future__ import annotations
 
 import argparse

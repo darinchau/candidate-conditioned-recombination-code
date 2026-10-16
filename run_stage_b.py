@@ -1,16 +1,8 @@
 """Stage B step 1: candidate-conditioned next beat-block decision (Bach chorales -> Lieder OOD),
 implementing the frozen plan-stageB.md.
 
-Writes:
-  results-b/STATUS.txt, run.log          progress (read STATUS first)
-  results-b/stageB-dev.json              dev-only selection, gates
-  FROZEN-B.json                          selected lrs + gate outcomes, written BEFORE any test scoring
-  results-b/stageB-results.json          full metrics, bootstrap CIs, env
-  results-b/stageB-report.md             human-readable tables + HB1-HB3 verdicts
-  models-b/<arm>-seed<k>.pt              final weights (git-ignored)
+Usage: .venv-gpu/Scripts/python.exe run_stage_b.py [--smoke]"""
 
-Usage: .venv-gpu/Scripts/python.exe run_stage_b.py [--smoke]
-"""
 from __future__ import annotations
 
 import argparse

@@ -1,8 +1,7 @@
 # Candidate-Conditioned Recombination — Standalone Reproduction Code
 
 Standalone reproduction package for the AIMG 2026 short paper
-**"When Selection Accuracy Does Not Transfer: Pool Artifacts and Harmony–Voice-Leading
-Trade-offs in Learned Beat-Block Recombination"**.
+**"Harmony and Voice-Leading Tradeoffs in Learned Beat-Block Symbolic Music Mashups"**.
 
 The paper studies whether selection accuracy of learned scorers (a cross-encoder V1 and a
 dual encoder B3, against uniform R0, context-free C1, and a voice-leading rule R2) transfers
@@ -22,10 +21,10 @@ or retraining is required.
 | `run_stage_b2.py` | Stage B2 (rest-fixed `r2` table) data plumbing and shared eval splits |
 | `run_stage_bl.py` | Pool construction (`Pool`) for chained generation, rule parts, audio render helpers |
 | `run_stage_bn3.py` | N3-negative selection experiment (train + eval); `--cell S2 --table r2` = paper Table I |
-| `run_stage_e3e.py` | Frozen chained-generation run: 8 arms × 16 steps × 3 seeds over test prompts (paper Table II, Fig. 2) |
+| `run_stage_e3e.py` | Frozen chained-generation run: 8 arms × 16 steps × 3 seeds over test prompts (paper Table II, Fig. 3) |
 | `diag_common.py` | Shared harness: rebuilds the frozen E3e world (data, prompts, pools, draws) and **verifies the pool hash against the published manifest before running** |
-| `diag_g1_pools.py` | G1 audit: target-present vs. never-present pools (paper §V-A) |
-| `diag_g1_inject.py` | G1 causal test: re-inject the original continuation into chained pools (paper Fig. 1, Table III, chorale split Table IV) |
+| `diag_g1_pools.py` | G1 audit: target-present vs. never-present pools (paper §IV) |
+| `diag_g1_inject.py` | G1 causal test: re-inject the original continuation into chained pools (paper Fig. 2, Table III, chorale split Table IV) |
 | `diag_g2_decircular.py` | G2: disjoint-half bigram prior, de-circularized rescoring (H-R / H-V) |
 | `diag_g3_guarded.py` | G3: guarded objective V1g with pre-registered gate criteria |
 | `eval_select.py` | Evaluation-only reproduction of Table I from the shipped checkpoints (no retraining) |
@@ -53,9 +52,9 @@ python verify.py
 | Stage | Command | Runtime (original hardware) | Compares against |
 |---|---|---|---|
 | `select` | `eval_select.py` | ~2–5 min (GPU) | `frozen/results-r2/bn3/S2/bn-results.json` → Table I |
-| `e3e` | `run_stage_e3e.py` | ~3 min (GPU), 159 s originally | `frozen/results-e3e/chain-results.json` → Table II, Fig. 2 |
-| `g1pools` | `diag_g1_pools.py` | ~1 min (CPU) | `frozen/results-diag-g1/pool-audit.json` → §V-A |
-| `g1inject` | `diag_g1_inject.py` | ~2 min (CPU), 81 s originally | `frozen/results-diag-g1/inject-results.json` → Fig. 1, Tables III–IV |
+| `e3e` | `run_stage_e3e.py` | ~3 min (GPU), 159 s originally | `frozen/results-e3e/chain-results.json` → Table II, Fig. 3 |
+| `g1pools` | `diag_g1_pools.py` | ~1 min (CPU) | `frozen/results-diag-g1/pool-audit.json` → §IV |
+| `g1inject` | `diag_g1_inject.py` | ~2 min (CPU), 81 s originally | `frozen/results-diag-g1/inject-results.json` → Fig. 2, Tables III–IV |
 | `g2` | `diag_g2_decircular.py` | ~2 min (CPU) | `frozen/results-diag-g2/decirc-results.json` |
 | `g3` | `diag_g3_guarded.py` | ~2 min (CPU) | `frozen/results-diag-g3/gate3-results.json` |
 
@@ -71,10 +70,11 @@ original GPU) and compares the fresh `bn-results.json` against the frozen one.
 |---|---|
 | Table I (selection top-1, test_id / test_lied) | `frozen/results-r2/bn3/S2/bn-results.json` → `kset.<split>.<arm>.all.top1` |
 | Table II (chained metrics on test_lied) | `frozen/results-e3e/chain-results.json` → `summary.test_lied.<arm>` |
-| Fig. 1 (pick rates by chain state) | `frozen/results-diag-g1/inject-results.json` → `summary.<split>.<arm>` pick keys |
+| Fig. 2 (pick rates by chain state) | `frozen/results-diag-g1/inject-results.json` → `summary.<split>.<arm>` pick keys |
+| Fig. 3 (harmony vs. voice-leading plane) | `frozen/results-e3e/chain-results.json` → `summary.test_lied.<arm>` (trig_lp, vl_dist) |
 | Table III (diagnostics with CIs) | `frozen/results-diag-g1/inject-results.json` + `frozen/results-diag-g2/decirc-results.json` + `frozen/results-diag-g3/gate3-results.json` → `contrasts` |
 | Table IV (chorale-split injection) | `frozen/results-diag-g1/inject-results.json` → `contrasts` (chorale replication) |
-| §V-A pool audit numbers | `frozen/results-diag-g1/pool-audit.json` |
+| §IV pool audit numbers | `frozen/results-diag-g1/pool-audit.json` |
 
 ## Provenance
 

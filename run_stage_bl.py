@@ -1,12 +1,7 @@
 """Stage B listening pilot: chained 16-beat recombination with frozen step 2 selectors (plan-stageBL.md, E3).
 
-Every arm sees the same 16 N2-style candidates per step (seeded by prompt and step, independent of history);
-the true continuation is not among them. Arms: V1, B3 (models-b2 seed 0), R2 (rule argmax), R0 (random).
+Usage: .venv-gpu/Scripts/python.exe run_stage_bl.py [--smoke]"""
 
-Writes results-bl/{STATUS.txt, run.log, bl-results.json, bl-report.md, clip-key-map.json, listening-summary.md,
-midi/*.mid, audio/*.wav (if FLUIDSYNTH_BIN and TAIEB_SOUNDFONT are set)}.
-Usage: .venv-gpu/Scripts/python.exe run_stage_bl.py [--smoke]
-"""
 from __future__ import annotations
 
 import argparse

@@ -1,12 +1,5 @@
-"""Standalone re-evaluation of the frozen r2/S2 selection experiment (paper Table I).
+"""Standalone re-evaluation of the frozen r2/S2 selection experiment (paper Table I)."""
 
-Recomputes selection metrics from the shipped checkpoints in models-r2/bn3/S2/ without
-retraining, mirroring the evaluation section of run_stage_bn3.main: N3 candidate sets
-with frozen CAND_SEEDs, exact-row eligibility restriction, R0/R1/R2 baselines, and the
-three seeds per neural arm (C1, B3, V1). Writes <out>/bn-results.json with the same
-`kset` layout as the original run, for direct comparison against
-frozen/results-r2/bn3/S2/bn-results.json (done automatically by verify.py).
-"""
 from __future__ import annotations
 
 import argparse

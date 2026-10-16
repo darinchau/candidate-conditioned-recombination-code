@@ -1,13 +1,7 @@
 """Shared harness for the 2026-10-10 G1/G2 diagnostics (post-E3e decision gates).
 
-Reproduces the frozen E3e setup exactly -- data, prompts, seeded pools, draws -- and verifies it
-against results-e3e/run-manifest.json (pool_sha256) before anything else runs. Chained runs are
-computed once (chosen blocks + inject-pick statistics) and scored separately (metrics depend on
-the pc-set trigram supplied at scoring time), so de-circularized re-scoring never repeats model
-forwards.
+Imported by the diag_* scripts and the example exporters. No main."""
 
-Imported by diag_g1_pools.py / diag_g1_inject.py / diag_g2_decircular.py. No main.
-"""
 from __future__ import annotations
 
 import hashlib

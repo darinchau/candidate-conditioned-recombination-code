@@ -1,21 +1,7 @@
 """G1 structural audit: candidate-pool composition, selection task vs chained generation.
 
-Question (post-E3e decision gates, 2026-10-10): is the selection->generation gap a pool-composition
-artifact? The models were trained/scored on pools that CONTAIN the true continuation; the E3
-chained protocol draws pools that can never contain it. This script verifies and quantifies that
-structural claim from reconstructed artifacts only (no model forwards):
+Usage: .venv-gpu/Scripts/python.exe diag_g1_pools.py"""
 
-  1. E3e chained pools (verified against the published manifest): own-work candidates (expect 0),
-     train-target share (~.288 per the frozen-plan audit).
-  2. Stage B2 selection law (Data.candidates, run_stage_b.py): true block present in every row;
-     negative provenance (other-works instances) and train-target share.
-  3. N3 selection law (candidates_n3, run_stage_bn3.py -- the training/eval law of the E3e
-     checkpoints): true block present in every row; own-work negative share (allowed by design);
-     train-target share.
-
-Writes results-diag-g1/pool-audit.json and prints a summary table.
-Usage: .venv-gpu/Scripts/python.exe diag_g1_pools.py
-"""
 from __future__ import annotations
 
 import json

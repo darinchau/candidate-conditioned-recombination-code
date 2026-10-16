@@ -1,20 +1,7 @@
 """G3 guarded joint objective (gate 3): V1 + harmony prior as constrained re-ranking.
 
-Implements plan-gate3-guarded.md (frozen @052e969, 2026-10-10). Arm V1g: per step, V1's pick defines
-a guard-feasible set (vl distance / parallels / crossings no worse, harmonic change not suppressed);
-within it the full-train pc-set bigram prior (same as H-R's) is maximised lexicographically, ties by
-V1 score. No lambda, no tuning. Comparators R2 / V1 / H-R must verify bit-exact against the published
-E3e chain-results.json before the gate is evaluated.
+Usage: .venv-gpu/Scripts/python.exe diag_g3_guarded.py [--smoke] [--cuda]"""
 
-Pre-registered Pareto gate (test_lied primary): C1 V1g-V1 trig_lp (full trigram) CI95 lower > 0;
-C2 jaccard and diatonic paired means >= 0; C3 vl_dist/hr_gap/parallels/crossings CI95 upper <= +10% of
-V1's split mean and continuity CI95 lower >= -10%. PASS = all three. FAIL = flip condition (c) met
-(flip still additionally requires listeners preferring H-R, gate 4).
-
---smoke chains the first 6 prompts per split (timing/dev only, no evidence).
-Writes results-diag-g3/gate3-results.json + gate3-report.md.
-Usage: .venv-gpu/Scripts/python.exe diag_g3_guarded.py [--smoke] [--cuda]
-"""
 from __future__ import annotations
 
 import argparse

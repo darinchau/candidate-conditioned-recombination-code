@@ -3,18 +3,8 @@
 Frozen spec: plan-stageE3E-frozen.md. Usage:
     .venv-gpu/Scripts/python.exe run_stage_e3e.py --audit     # CPU audits, writes results-e3e-audit/
     .venv-gpu/Scripts/python.exe run_stage_e3e.py --smoke     # 6 prompts per split, seed 0, results-e3e-smoke/
-    .venv-gpu/Scripts/python.exe run_stage_e3e.py             # full run, results-e3e/
+    .venv-gpu/Scripts/python.exe run_stage_e3e.py             # full run, results-e3e/"""
 
-Design (see frozen plan section 2):
-- pc-set of a block = set of pitch classes sounding in >=1 of its 16 slots (vals >= 2), stored as a
-  12-bit mask. Pieces are already transposed so tonic = pc 0 (audited). All-rest block = mask 0.
-- Held-out metric: interpolated Witten-Bell pc-set trigram fitted on train pieces only; per-step
-  log2 P(s_t | s_{t-2}, s_{t-1}) with history from the prompt, averaged over the 16 steps.
-- H prior: Witten-Bell bigram from the same train counts; natural-log P(cand | previous chosen).
-  H-R score = R2 score + lambda * logP. H-V score = log_softmax_K(V1 logits) + lambda * logP.
-- lambda in {0.5,1,2,4} picked on dev+dev_lied: max mean trigram logprob subject to
-  mean vl_dist <= 1.10 x base arm; tie -> smaller lambda. Written before any test prompt is run.
-"""
 from __future__ import annotations
 
 import argparse

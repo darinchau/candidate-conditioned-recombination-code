@@ -1,24 +1,8 @@
-"""MusicXML export of the score examples (paper Fig. 4-9 protocol) for the examples repository.
-
-Rebuilds the frozen E3e world via diag_common.setup() (pool hash verified against
-results-e3e/run-manifest.json), chains every arm for each requested prompt with seed-0
-models (exactly as render_examples.py does for the LilyPond gallery), and writes one
-MusicXML file per prompt x arm: the 8-beat context in grey followed by all 16 generated
-beat blocks, one 4/4 measure per block, dashed barlines between generated blocks and a
-light-light double barline at the prompt cut. Pitch content is in the key-normalised
-frame of the data (tonic C); S/A share staff 1, T/B share staff 2.
-
-Verification:
-  --check         round-trips every written file through music21 (parse must succeed and
-                  note/rest counts must match) and compares per-voice per-measure event
-                  lists (pitch-or-rest, slot count) against data.vals/data.ons for all
-                  24 blocks; ties reconstruct the onset flags.
-  --check-frozen  compares per-prompt 16-step vl_dist of the deterministic arms
-                  (R2, O-pc, H-R) against frozen/results-e3e/chain-results.json.
+"""MusicXML export of the score examples (paper Fig. 4 protocol) for the examples repository.
 
 Usage: python export_examples_xml.py [--split test_lied|test_id] [--prompts N ...]
-       [--out xml-examples] [--check] [--check-frozen]
-"""
+       [--out xml-examples] [--check] [--check-frozen]"""
+
 from __future__ import annotations
 
 import argparse

@@ -1,12 +1,12 @@
-"""Reproduction driver for the paper "When Selection Accuracy Does Not Transfer".
+"""Reproduction driver for the paper "Harmony and Voice-Leading Tradeoffs in Learned Beat-Block Symbolic Music Mashups".
 
 Reruns every experiment stage in a fresh checkout and compares the outputs against the
 frozen reference artifacts in frozen/. Stages:
 
   select   eval_select.py: Table I selection metrics from the shipped checkpoints (GPU or CPU)
-  e3e      run_stage_e3e.py: frozen chained-generation run (paper Table II + Fig. 2; GPU ~3 min)
+  e3e      run_stage_e3e.py: frozen chained-generation run (paper Table II + Fig. 3; GPU ~3 min)
   g1pools  diag_g1_pools.py: pool-composition audit (CPU)
-  g1inject diag_g1_inject.py: target-injection causal test (paper Fig. 1 + Table III/IV)
+  g1inject diag_g1_inject.py: target-injection causal test (paper Fig. 2 + Table III/IV)
   g2       diag_g2_decircular.py: disjoint-half de-circularized prior rescoring
   g3       diag_g3_guarded.py: guarded objective (V1g) gate
 
@@ -18,8 +18,8 @@ Usage:
                                    # `run_stage_bn3.py --cell S2 --table r2` (~35 min GPU)
                                    # (runs last; overwrites models-r2/bn3/S2 in place)
 
-Exit code 0 iff every stage ran and every comparison passed within tolerance.
-"""
+Exit code 0 iff every stage ran and every comparison passed within tolerance."""
+
 from __future__ import annotations
 
 import argparse

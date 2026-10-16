@@ -1,20 +1,7 @@
 """Stage B with exchangeable negatives N3 (frozen plan-stageBN3.md, experiment E2b).
 
-N3 candidate recipe: per query, bucket the split pool by metric key (bpb, bi, comp, mode) with coarser fallbacks;
-drop block ids whose bucket share exceeds 1/K; draw a fixed-size K set by systematic pi-ps sampling conditioned on
-containing the target, so P(target = b | set) = 1/K for every member (exchangeable, size-invariant). Own work allowed.
-Only exact level-0 eval rows (target kept in a level-0 bucket) are scored; training sets use all rows.
+Usage: .venv-gpu/Scripts/python.exe run_stage_bn3.py --cell S1|S2|CL|CM [--smoke]"""
 
-Cells (all share the step 2 block table, so eval candidate sets are identical across cells):
-  S1  train = step 1 chorales (18,886)              selection on dev
-  S2  train = step 2 chorales + all train Lieder     selection on mean(dev, dev_lied)
-  CL  train = BC Lieder subsample (18,886)           selection on mean(dev, dev_lied)
-  CM  train = chorales + BC Lieder subsample         selection on mean(dev, dev_lied)
-
-Writes results-bn3/<cell>/{STATUS.txt, run.log, bn-dev.json, bn-results.json, bn-report.md, correct.npz},
-FROZEN-BN3-<cell>.json (before test scoring), models-bn3/<cell>/<arm>-seed<k>.pt (git-ignored).
-Usage: .venv-gpu/Scripts/python.exe run_stage_bn3.py --cell S1|S2|CL|CM [--smoke]
-"""
 from __future__ import annotations
 
 import argparse

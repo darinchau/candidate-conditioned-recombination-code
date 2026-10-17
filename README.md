@@ -85,8 +85,8 @@ original GPU) and compares the fresh `bn-results.json` against the frozen one.
 - The `diag_*` stages re-derive the chained pools from the data file and assert the pool
   hash equals the published manifest's `pool_sha256` before computing anything, so a
   corrupted data or model file cannot silently produce "matching" numbers.
-- G4 (listening study) is intentionally not part of this package: it is reported in the
-  paper as a pre-registered protocol only.
+- The pre-registered listening study (G4) is intentionally not part of this package: the paper
+  reports only a small qualitative pilot; the full study is future work.
 
 ## Verification status (2026-10-12)
 
